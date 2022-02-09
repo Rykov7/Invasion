@@ -2,11 +2,11 @@ import pygame
 
 class Ship:
     """A class to manage the ship."""
-    def __init__(self, ai_game):
+    def __init__(self, game):
         """Initialie the ship and set its starting position."""
-        self.screen = ai_game.screen
-        self.settings = ai_game.settings
-        self.screen_rect = ai_game.screen.get_rect()
+        self.screen = game.screen
+        self.settings = game.settings
+        self.screen_rect = game.screen.get_rect()
 
         # Load the ship image and get its rect.
         self.image = pygame.image.load('images/png/ship.png')
@@ -39,10 +39,10 @@ class Ship:
 
 
 class Invador:
-    def __init__(self, ai_game):
+    def __init__(self, game):
         """Initialie the ship and set its starting position."""
-        self.screen = ai_game.screen
-        self.screen_rect = ai_game.screen.get_rect()
+        self.screen = game.screen
+        self.screen_rect = game.screen.get_rect()
 
         # Load the ship image and get its rect.
         self.image = pygame.image.load('images/png/invador.png')
