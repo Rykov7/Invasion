@@ -1,10 +1,12 @@
 import sys
 import pygame
+from random import randint
 
 from settings import Settings
 from ship import Ship
 from bullet import Bullet
 from alien import Alien
+from star import Star
 
 class Invasion:
     """Overall class to manage game assets and behavior."""
@@ -23,6 +25,7 @@ class Invasion:
                 
         self.ship = Ship(self)
         self.bullets = pygame.sprite.Group()
+        self.stars = pygame.sprite.Group()
         self.aliens = pygame.sprite.Group()
         self._create_fleet()
 
@@ -31,6 +34,7 @@ class Invasion:
         while True:
             self._check_events()
             self.ship.update()
+            self._update_stars()
             self._update_bullets()
             self._update_aliens()
             self._update_screen()
@@ -84,6 +88,18 @@ class Invasion:
         # The two True agrements tell Pygame to delete the bullets and aliens that have collided.
         collisions = pygame.sprite.groupcollide(self.bullets, self.aliens, True, True)
 
+    def _update_stars(self):
+        
+        self.stars.update()
+        probability = randint(0, 100)
+        if probability < 1:
+            if len(self.stars) < self.settings.stars_allowed:
+                new_star = Star(self)
+                self.stars.add(new_star)
+        for star in self.stars.copy():
+            if star.rect.top >= self.settings.screen_height:
+                self.stars.remove(star)
+
     def _create_fleet(self):
         """Create the fleet of aliens."""
         # Make an alien and find the number of aliens in a row.
@@ -135,6 +151,8 @@ class Invasion:
         """Update images on the screen, and flip to the new screen."""
         # Redraw the screen during each pass through the loop.
         self.screen.fill(self.settings.bg_color)
+        for star in self.stars.sprites():
+            star.draw_star()
         self.ship.blitme()
         for bullet in self.bullets.sprites():
             bullet.draw_bullet()

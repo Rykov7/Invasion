@@ -27,3 +27,10 @@ class Settings:
         self.fleet_drop_speed = 10
         # fleet_direction of 1 represents right; -1 represents left.
         self.fleet_direction = 1
+
+        # Star settings
+        self.star_speed = 0.5
+        self.star_width = 7
+        self.star_height = 14
+        self.star_color = (50, 55, 65)
+        self.stars_allowed = 70
