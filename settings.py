@@ -10,13 +10,14 @@ class Settings:
         # Screen settings to FullHD resolution
         # self.screen_width = 1920
         # self.screen_height = 1080
-        self.bg_color = (43, 40, 50) # Dark grey
+        self.bg_color = (33, 30, 35) # Dark grey
 
         # Ship settings
         self.ship_speed = 1.5
-
+        self.ship_limit = 3
+        
         # Bullet settings
-        self.bullet_speed = 1.0
+        self.bullet_speed = 2
         self.bullet_width = 7
         self.bullet_height = 14
         self.bullet_color = (160,155,170)
@@ -29,8 +30,9 @@ class Settings:
         self.fleet_direction = 1
 
         # Star settings
-        self.star_speed = 0.5
+        self.star_speed = 0.3
         self.star_width = 7
-        self.star_height = 14
-        self.star_color = (50, 55, 65)
-        self.stars_allowed = 70
+        self.star_height = 7
+        self.star_color = (60, 50, 50)
+        self.stars_allowed = 700
+        self.stars_probability = 7
