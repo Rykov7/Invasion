@@ -10,7 +10,7 @@ class Button:
         self.width, self.height = 252, 91
         self.button_color = (150, 15, 9) # Fire color
         self.text_color = (240, 230, 230)
-        self.font = pygame.font.Font('fonts/PixelTactical-AWOx.ttf', 52)
+        self.font = pygame.font.Font('fonts/PixelTactical-AWOx.ttf', 56)
 
         # Build the buttons' rect object and center it.
         self.rect = pygame.Rect(0, 0, self.width, self.height)
@@ -24,7 +24,7 @@ class Button:
         self.msg_image = self.font.render(msg, True, self.text_color, self.button_color)
         self.msg_image_rect = self.msg_image.get_rect()
         self.msg_image_rect.center = self.rect.center
-        
+
     def draw_button(self):
         # Draw blank button and then draw message.
         self.screen.fill(self.button_color, self.rect)

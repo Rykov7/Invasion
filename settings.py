@@ -18,7 +18,7 @@ class Settings:
         # Bullet settings
         self.bullet_width = 7
         self.bullet_height = 14
-        self.bullet_color = (160,155,170)
+        self.bullet_color = (247, 225, 207)
         self.bullets_allowed = 3
 
         # Alien settings

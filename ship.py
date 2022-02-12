@@ -1,15 +1,18 @@
 import pygame
+from pygame.sprite import Sprite
 
-class Ship:
+class Ship(Sprite):
     """A class to manage the ship."""
     def __init__(self, game):
         """Initialie the ship and set its starting position."""
+        super().__init__()
+
         self.screen = game.screen
         self.settings = game.settings
         self.screen_rect = game.screen.get_rect()
 
         # Load the ship image and get its rect.
-        self.image = pygame.image.load('images/png/ship3.png')
+        self.image = pygame.image.load('images/ship3.png')
         self.rect = self.image.get_rect()
         # Start each new ship at the bottom center of the screen.
         self.rect.midbottom = self.screen_rect.midbottom
