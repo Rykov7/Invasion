@@ -1,3 +1,14 @@
+"""
+---Invasion Telecom---
+Made by @Rykov7
+according to the textbook
+by Eric Matthes "Python Crash Course" (2019)
+
+Project I. "Alien Invasion" the Game (Chapters 12-14)
+
+February 12, 2022
+"""
+
 import sys
 from time import sleep
 
@@ -19,7 +30,7 @@ class Invasion:
     def __init__(self):
         """Initialize the game, and create game resources."""
         pygame.init()
-        pygame.display.set_caption("Invasion")
+        pygame.display.set_caption("Invasion Telecom")
         self.settings = Settings()
 
         self.screen = pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
@@ -82,6 +93,7 @@ class Invasion:
             self.stats.reset_stats()
             self.stats.game_active = True
             self.sb.prep_score()
+            self.sb.prep_level()
             # Get rid of any remaining aliens and bullets.
             self.aliens.empty()
             self.bullets.empty()
@@ -144,6 +156,10 @@ class Invasion:
             self.bullets.empty()
             self._create_fleet()
             self.settings.increase_speed()
+
+            # Increase level.
+            self.stats.level += 1
+            self.sb.prep_level()
 
     def _update_stars(self):
         """ Create and update stars."""
