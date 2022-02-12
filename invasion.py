@@ -44,6 +44,7 @@ class Invasion:
         # Create an instance to store game statistics,
                 #  and create a scoreboard.
         self.stats = Stats(self)
+        self._load_saving()
         self.sb = Scoreboard(self)
 
         self.ship = Ship(self)
@@ -73,6 +74,7 @@ class Invasion:
         # Watch for keyboard and mouse events.
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                self._saving()
                 sys.exit()
             elif event.type == pygame.KEYDOWN:
                 self._check_keydown_events(event)
@@ -114,6 +116,7 @@ class Invasion:
         elif event.key == pygame.K_LEFT:
             self.ship.moving_left = True
         elif event.key == pygame.K_q:
+            self._saving()
             sys.exit()
         elif event.key == pygame.K_SPACE:
             self._fire_bullet()
@@ -259,7 +262,6 @@ class Invasion:
                 self._ship_hit()
                 break
 
-
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen."""
         # Redraw the screen during each pass through the loop.
@@ -280,6 +282,32 @@ class Invasion:
 
         # Make the most recently drawn screen visible.
         pygame.display.flip()
+
+    def _load_saving(self):
+        try:
+            with open('data/record', 'r') as f:
+                record = f.read()
+                record = int(record)
+                self.stats.high_score = record
+        except FileNotFoundError:
+            pass
+
+    def _saving(self):
+        try:
+            with open('data/record', 'r') as f:
+                record = f.read()
+
+        except FileNotFoundError:
+            with open('data/record', 'w') as f:
+                record = str(self.stats.high_score)
+                f.write(record)
+                
+        else:
+            if self.stats.high_score > int(record):
+                with open('data/record', 'w') as f:
+                    record = str(self.stats.high_score)
+                    f.write(record)
+
 
 if __name__ == '__main__':
     # Make a game instance, and run the game.
