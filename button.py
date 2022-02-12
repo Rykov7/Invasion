@@ -7,10 +7,10 @@ class Button:
         self.screen_rect = self.screen.get_rect()
 
         # Set the dimensions and properties of the button.
-        self.width, self.height = 240, 56
-        self.button_color = (200, 100, 30)
+        self.width, self.height = 252, 91
+        self.button_color = (150, 15, 9) # Fire color
         self.text_color = (240, 230, 230)
-        self.font = pygame.font.SysFont(None, 48)
+        self.font = pygame.font.Font('fonts/PixelEmulator-xq08.ttf', 48)
 
         # Build the buttons' rect object and center it.
         self.rect = pygame.Rect(0, 0, self.width, self.height)
