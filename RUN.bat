@@ -1,0 +1,1 @@
+.alien_inv\Scripts\python.exe invasion.py %*
