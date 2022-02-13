@@ -7,7 +7,7 @@ Project I. "Alien Invasion" the Game (Chapters 12-14)
 February 12, 2022
 
 ======Installation======
-1) Run self-extracting archive "invasion.exe"
+1) Run self-extracting archive "InvasionInstaller.exe"
 2) Choose a directory for the files
 2) Run game with "RUN.bat"
 
