@@ -8,7 +8,7 @@ February 12, 2022
 
 ======Installation======
 1) Run self-extracting archive "invasion.exe"
-2) Choose any directory for files
+2) Choose a directory for the files
 2) Run game with "RUN.bat"
 
 ======Rules======
