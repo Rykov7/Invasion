@@ -6,10 +6,8 @@ by Eric Matthes "Python Crash Course" (2019)
 Project I. "Alien Invasion" the Game (Chapters 12-14)
 February 12, 2022
 
-======Installation======
-1) Run self-extracting archive "InvasionInstaller.exe"
-2) Choose a directory for the files
-2) Run game with "RUN.bat"
+======Running======
+1) Run game with "RUN.bat"
 
 ======Rules======
 You take the Space Ship under control to defend Earth from invaders.
